@@ -29,11 +29,11 @@
         <!-- Sidebar Navigation end-->
         <div class="page-content">
             <div class="page-header">
-                <div class="container-fluid">
-                    <h5 style="color: #fff;">Add Category</h5>
-                    <form action="{{ route('add_category') }}" method="POST">
+                <div class="container-fluid">                    
+                    <form action="{{ url('add_category') }}" method="POST">
                         @csrf
                         <div class="div_deg">
+                            <h5 style="color: #fff;">Add Category</h5>
                             <input type="text" name="category_name">
                             <button type="submit" class="btn btn-primary">
                                 Add Category

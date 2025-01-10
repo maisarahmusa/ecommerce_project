@@ -5,6 +5,20 @@
     @include('admin.css')
 </head>
 
+<style>
+    input[type="text"] {
+        width: 400px;
+        height: 50px;
+    }
+
+    .div_deg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+</style>
+
 <body>
 
     @include('admin.header')
@@ -15,9 +29,22 @@
         <!-- Sidebar Navigation end-->
         <div class="page-content">
             <div class="page-header">
-                    @include('admin.body')
-            </div>    
+                <div class="container-fluid">
+                    <h5 style="color: #fff;">Add Category</h5>
+                    <form action="{{ route('add_category') }}" method="POST">
+                        @csrf
+                        <div class="div_deg">
+                            <input type="text" name="category_name">
+                            <button type="submit" class="btn btn-primary">
+                                Add Category
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
+    </div>
     </div>
     <!-- JavaScript files-->
     <script src="{{ asset('admincss/vendor/jquery/jquery.min.js') }} "></script>

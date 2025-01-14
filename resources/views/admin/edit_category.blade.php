@@ -3,6 +3,15 @@
 
 <head>
     @include('admin.css')
+
+    <style>
+        .div_deg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 60px; 
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +24,16 @@
         <!-- Sidebar Navigation end-->
         <div class="page-content">
             <div class="page-header">
-                    @include('admin.body')
+                   <div class="container-fluid">
+                        <h1 style="color:white"> Update Category </h1>
+                        <div class="div_deg">
+                            <form action="{{url('update_category', $data->id)}}" method="POST">
+                                @csrf
+                                <input type="text" name="category_name" value="{{$data->category_name}}">
+                                <button type="submit" class="btn btn-primary">Update Category</button>
+                            </form>
+                        </div>
+                   </div>
             </div>    
         </div>
     </div>

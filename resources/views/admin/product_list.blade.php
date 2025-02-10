@@ -48,6 +48,29 @@
 
     }
 
+    .table_deg {
+        text-align: center;
+        margin: auto;
+        border: 2px solid yellowgreen;
+        margin-top: 50px;
+        width: 600px; 
+    }
+
+    th {
+        background-color: skyblue;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+
+    td {
+        color: white;
+        padding: 10px;
+        border: 1px solid skyblue;
+
+    }
+
     </style>
 </head>
 
@@ -64,7 +87,7 @@
                 <div class="container-fluid">
                     <h1>List of Products</h1>
                     <div class="div_deg">
-                        <table class="cell-border">
+                        <table class="table-deg">
                            <thead>
                                 <tr>
                                     <th>Title</th>
@@ -72,6 +95,7 @@
                                     <th>Price (RM)</th>
                                     <th>Quantity</th>
                                     <th>Product Category</th>
+                                    <th>Action</th>
                                 </tr>
                            </thead>
                            <tbody>
@@ -81,6 +105,10 @@
                                         <td>{{$pl->description}}</td>
                                         <td>{{$pl->price}}</td>
                                         <td>{{$pl->quantity}}</td>
+                                        <td>ok</td>
+                                        <td>
+                                            <a href="{{url('view_product')}}" type="button" class="btn btn-primary">View Products</a>
+                                        </td>
                                     </tr>
                                 @empty
                                 <tr>

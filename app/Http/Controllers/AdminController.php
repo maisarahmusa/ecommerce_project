@@ -73,9 +73,9 @@ class AdminController extends Controller
         $product->category_id = $request->category_id;
         $image = $request->image;
 
-        if($image){
-            $image_name = time().'.'.$image->
-            getClientOriginalExtension();
+        if ($image) {
+            $image_name = time() . '.' . $image->
+                getClientOriginalExtension();
 
             $request->image->move('products', $image_name);
 
@@ -97,5 +97,42 @@ class AdminController extends Controller
         //dd($productList);
         return view('admin.product_list', compact('productList'));
     }
+
+    public function view_product()
+    {
+        return view('admin.view_product');
+    }
+
+    public function edit_product($id)
+    {
+        $data = Product::find($id);
+
+        return view('admin.view-product', compact('data'));
+    }
+
+    public function update_product(Request $request, $id)
+    {
+        $data = Product::find($id);
+
+        if (!$data) {
+            toastr()->error("Product not found.");
+            return redirect('/product_list');
+        }
+
+        // Fetch category using the Eloquent relationship
+        $category = $data->category;
+
+        // Update product details
+        $data->title = $request->title;
+        $data->description = $request->description;
+        $data->price = $request->price;
+        $data->quantity = $request->quantity;
+        $data->category_id = $request->category_id;
+        $data->save();
+
+        toastr()->timeOut(10000)->closeButton()->success("Product Updated Successfully.");
+        return redirect('/product_list');
+    }
+
 
 }

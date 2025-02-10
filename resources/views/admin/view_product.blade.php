@@ -1,55 +1,52 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    @include('admin.css')
-    <script src="{{ asset('admincss/vendor/jquery/jquery.min.js') }} "></script>
-    <link href="{{ asset('admincss/css/select2.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('admincss/js/select2.min.js')}}"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Details</title>
+    
     <style type="text/css">
-    .div_deg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 30px; 
-    }
-
-    h1 {
-        color: white;
-
-    }
-
-    label {
-        display: inline-block;
-        width: 250px;
-        font-size: 18px !important;
-        color: white !important;
-    }
-
-    input[type="text"]
-    {
-        width: 200px;
-        height: 50px;
-    }
-
-    textarea
-    {
-        width: 450px;
-        height: 80px;
-    }
-
-    .input_deg
-    {
-        padding: 15px;
-
-    }
-
+        .div_deg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px; 
+        }
+    
+        h1 {
+            color: white;
+    
+        }
+    
+        label {
+            display: inline-block;
+            width: 250px;
+            font-size: 18px !important;
+            color: white !important;
+        }
+    
+        input[type="text"]
+        {
+            width: 200px;
+            height: 50px;
+        }
+    
+        textarea
+        {
+            width: 450px;
+            height: 80px;
+        }
+    
+        .input_deg
+        {
+            padding: 15px;
+    
+        }
     </style>
+
 </head>
-
 <body>
-
     @include('admin.header')
 
     <div class="d-flex align-items-stretch">
@@ -59,25 +56,25 @@
         <div class="page-content">
             <div class="page-header">
                 <div class="container-fluid">
-                    <h1>Add Product</h1>
+                    <h1>Product Details</h1>
                     <div class="div_deg">
-                        <form action="{{url('add_product_detail')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('edit_product_detail')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="input_deg">
                                 <label for="title">Title</label>
-                                <input type="text" name="title">
+                                <input type="text" name="title" value="">
                             </div>
                             <div class="input_deg">
                                 <label for="description">Description</label>
-                                <textarea name="description" id="description"></textarea>
+                                <textarea name="description" id="description" value=""></textarea>
                             </div>
                             <div class="input_deg">
                                 <label for="price">Price</label>
-                                <input type="number" name="price">
+                                <input type="number" name="price" value="">
                             </div>
                             <div class="input_deg">
                                 <label for="quantity">Quantity</label>
-                                <input type="number" name="quantity">
+                                <input type="number" name="quantity" value="">
                             </div>
                             <div class="input_deg">
                                 <label for="category_id">Product Category</label>
@@ -95,7 +92,7 @@
                                 <input class="form-control" type="file" name="image">
                             </div>
                             <div class="input_deg mb-3">
-                               <button type="submit" class="btn btn-success">Add Product</button>
+                               <button type="submit" class="btn btn-success">Save</button>
                             </div>
                         </form>
                     </div>
@@ -112,14 +109,6 @@
     <script src="{{ asset('admincss/vendor/jquery-validation/jquery.validate.min.js') }} "></script>
     <script src="{{ asset('admincss/js/charts-home.js') }} "></script>
     <script src="{{ asset('admincss/js/front.js') }} "></script>
-    <script src="{{ asset('admincss/js/select2.min.js')}}"></script>
-
-
-    <script>
-        $(document).ready(function(){
-            $('#productCategory').select2();
-        });     
-    </script>
+    <script src="{{ asset('admincss/js/select2.min.js')}}"></script>  
 </body>
-
 </html>

@@ -106,6 +106,7 @@ class AdminController extends Controller
     public function edit_product($id)
     {
         $data = Product::find($id);
+        
 
         return view('admin.view-product', compact('data'));
     }
